@@ -7,7 +7,4 @@ def test_guest_can_add_product_to_basket(browser):
     product_page.open()
     product_page.add_product_in_cart()
     product_page.solve_quiz_and_get_code()
-    while True:
-        input_continue = input('Введите go для продолжения')
-        if input_continue == 'go':
-            False
+    product_page.does_the_name_match()
