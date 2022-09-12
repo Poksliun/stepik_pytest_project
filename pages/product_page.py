@@ -12,7 +12,7 @@ class ProductPage(BasePage):
 
     def does_the_name_match(self):
         product_name = self.browser.find_element(*ProductPageLocators.NAME_PRODUCT).text
-        conf_product_name = self.browser.find_element(*ProductPageLocators.CONFIRMATION_NAME_PRODUCT)
+        conf_product_name = self.browser.find_element(*ProductPageLocators.CONFIRMATION_NAME_PRODUCT).text
         assert product_name.lower() == conf_product_name.lower()
     #
     # def does_the_price_match(self):
