@@ -21,3 +21,28 @@ def test_guest_can_add_product_to_basket(browser,promo):
     product_page.solve_quiz_and_get_code()
     product_page.does_the_name_match()
     product_page.does_the_price_match()
+
+@pytest.mark.xfail(reason="Известная нам ошибка.")
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    LINK = f'http://selenium1py.pythonanywhere.com' \
+           f'/catalogue/coders-at-work_207/'
+    product_page = ProductPage(browser, LINK)
+    product_page.open()
+    product_page.add_product_in_cart()
+    product_page.should_not_be_success_message()
+
+def test_guest_cant_see_success_message(browser):
+    LINK = f'http://selenium1py.pythonanywhere.com' \
+           f'/catalogue/coders-at-work_207/'
+    product_page = ProductPage(browser, LINK)
+    product_page.open()
+    product_page.should_not_be_success_message()
+
+@pytest.mark.xfail(reason="Известная нам ошибка.")
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    LINK = f'http://selenium1py.pythonanywhere.com' \
+           f'/catalogue/coders-at-work_207/'
+    product_page = ProductPage(browser, LINK)
+    product_page.open()
+    product_page.add_product_in_cart()
+    product_page.dissappeared_success_message()
