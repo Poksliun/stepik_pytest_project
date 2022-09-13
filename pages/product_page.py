@@ -21,3 +21,11 @@ class ProductPage(BasePage):
         conf_product_price = self.browser.find_element\
             (*ProductPageLocators.CONFIRMATION_NAME_PRODUCT).text
         assert product_price.lower() == conf_product_price.lower(), 'Элементы не равны либо не найдены'
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def dissappeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Сообщение об успешном добавлении не пропало"
