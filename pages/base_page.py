@@ -67,6 +67,18 @@ class BasePage():
         except NoAlertPresentException:
             print("No second alert presented")
 
+    def text_comparision(self, how, what, required_text):
+        try:
+            search_text = self.browser.find_element(how, what).text
+            search_text = search_text.strip()
+
+        except NoSuchElementException:
+            print('Элемент на странице не найден.')
+            return False
+
+        return required_text == search_text
+
+
 
 
 
