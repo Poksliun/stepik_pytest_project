@@ -22,5 +22,6 @@ class BasePageLocators():
 
 class BasketPageLocators():
     BASKET_PRODUCTS = (By.CSS_SELECTOR, '.basket-title.hidden-xs')
+    BASKET_PRODUCTS_TEXT = (By.CSS_SELECTOR, '#content_inner > p')
 
 
